@@ -49,18 +49,16 @@ client.c: Implementa il client, che converte il messaggio in segnali e li invia 
 utils.c: Contiene funzioni di supporto come la gestione degli errori.
 Makefile: Contiene le regole per compilare il progetto.
 ## 📝 Funzionamento tecnico
-Comunicazione con segnali Unix
 Il client invia ogni carattere come una sequenza di segnali:
-SIGUSR1: Rappresenta il bit 0.
-SIGUSR2: Rappresenta il bit 1.
+- **SIGUSR1:** Rappresenta il bit 0.
+- **SIGUSR2:** Rappresenta il bit 1.
 Il server interpreta i segnali e ricostruisce il messaggio, un carattere alla volta.
 Esempio di trasmissione
 Il client invia la rappresentazione binaria di un carattere (ad esempio, A = 01000001).
 Il server riceve i segnali e converte i bit in un carattere leggibile.
-🔧 Debug e Test
+## 🔧 Debug e Test
 Visualizza i processi attivi
 Per verificare il PID del server:
-
 - ps -aux | grep server
 Interrompere il server
 Per il server in esecuzione con:
